@@ -7,7 +7,7 @@ run: clean default
 default: $(TARGET)
 
 $(TARGET): $(OBJ)
-	gcc -o $@ $?
+	gcc -o $@ $? -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 code/obj/%.o : code/src/%.c
 	gcc -c $< -o $@ -Icode/include
