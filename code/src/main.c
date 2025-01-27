@@ -1,5 +1,8 @@
 #include "settings.h"
 
+
+void gameLoop();
+
 int main(int argc, char const *argv[])
 {
     // Initialization
@@ -8,8 +11,20 @@ int main(int argc, char const *argv[])
     const int screenWidth = WINDOW_WIDTH;
     const int screenHeight = WINDOW_HEIGHT;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Pokeclone");
 
+    gameLoop();
+
+    // De-Initialization
+    //--------------------------------------------------------------------------------------
+    CloseWindow();        // Close window and OpenGL context
+    ecs_fini(world);
+    //--------------------------------------------------------------------------------------
+
+    return 0;
+}
+
+void gameLoop() {
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
@@ -33,11 +48,4 @@ int main(int argc, char const *argv[])
         //----------------------------------------------------------------------------------
     }
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
-    ecs_fini(world);
-    //--------------------------------------------------------------------------------------
-
-    return 0;
 }
