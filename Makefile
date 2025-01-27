@@ -2,7 +2,7 @@ TARGET = code/bin/game
 SRC = $(wildcard code/src/*.c)
 OBJ = $(patsubst code/src/%.c, code/obj/%.o, $(SRC))
 
-run: clean default
+build: clean default
 
 default: $(TARGET)
 
@@ -15,3 +15,6 @@ code/obj/%.o : code/src/%.c
 clean:
 	rm -f code/obj/*.o
 	rm -f code/bin/*
+
+run:
+	./code/bin/game
