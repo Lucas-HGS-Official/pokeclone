@@ -1,6 +1,8 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include <lua.h>
+#include <lauxlib.h>
 #include <raylib.h>
 #include "flecs.h"
 

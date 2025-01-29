@@ -7,7 +7,7 @@ build: clean default
 default: $(TARGET)
 
 $(TARGET): $(OBJ)
-	gcc -o $@ $? -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+	gcc -o $@ $? -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -llua
 
 code/obj/%.o : code/src/%.c
 	gcc -c $< -o $@ -Icode/include
@@ -16,5 +16,5 @@ clean:
 	rm -f code/obj/*.o
 	rm -f code/bin/*
 
-run:
-	./code/bin/game
+run: default
+	./$(TARGET)
