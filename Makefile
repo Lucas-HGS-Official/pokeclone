@@ -7,7 +7,7 @@ build: clean default
 default: $(TARGET)
 
 $(TARGET): $(OBJ)
-	gcc -o $@ $? -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -llua
+	gcc -o $@ $? -Wall -std=c99 -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -llua
 
 code/obj/%.o : code/src/%.c
 	gcc -c $< -o $@ -Icode/include
