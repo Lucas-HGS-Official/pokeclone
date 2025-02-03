@@ -2,15 +2,13 @@ TARGET = code/bin/game
 SRC = $(wildcard code/src/*.c)
 OBJ = $(patsubst code/src/%.c, code/obj/%.o, $(SRC))
 
-default: $(TARGET)
+build: clean $(TARGET)
 
 $(TARGET): $(OBJ)
 	gcc -o $@ $? -Wall -std=c99 -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -llua
 
 code/obj/%.o : code/src/%.c
 	gcc -c $< -o $@ -Icode/include
-
-build: clean default
 
 clean:
 	rm -f code/obj/*.o
