@@ -1,31 +1,26 @@
 #include "settings.h"
-#include "flecs.h"
 
 
-void gameLoop();
+void game_loop(void);
+void destroy_game(ecs_world_t* world);
 
 int main(int argc, char const *argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    ecs_world_t *world = ecs_init();
+    ecs_world_t* world = ecs_init();
     const int screenWidth = WINDOW_WIDTH;
     const int screenHeight = WINDOW_HEIGHT;
 
     InitWindow(screenWidth, screenHeight, "Pokeclone");
 
-    gameLoop();
-
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
-    ecs_fini(world);
-    //--------------------------------------------------------------------------------------
+    game_loop();
+    destroy_game(world);
 
     return 0;
 }
 
-void gameLoop() {
+void game_loop(void) {
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
@@ -48,5 +43,14 @@ void gameLoop() {
         EndDrawing();
         //----------------------------------------------------------------------------------
     }
+
+}
+
+void destroy_game(ecs_world_t* world) {
+    // De-Initialization
+    //--------------------------------------------------------------------------------------
+    CloseWindow();        // Close window and OpenGL context
+    ecs_fini(world);
+    //--------------------------------------------------------------------------------------
 
 }

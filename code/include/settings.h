@@ -1,9 +1,9 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#include <lua.h>
-#include <lauxlib.h>
 #include <raylib.h>
+#include "flecs.h"
+#include "cute_tiled.h"
 
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720
