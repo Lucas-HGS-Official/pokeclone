@@ -1,23 +1,27 @@
 #include "settings.h"
 
-
+void setup(ecs_world_t* world);
 void game_loop(void);
 void destroy_game(ecs_world_t* world);
 
-int main(int argc, char const *argv[])
-{
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    ecs_world_t* world = ecs_init();
-    const int screenWidth = WINDOW_WIDTH;
-    const int screenHeight = WINDOW_HEIGHT;
-
-    InitWindow(screenWidth, screenHeight, "Pokeclone");
-
+int main(int argc, char const *argv[]) {
+    ecs_world_t* world;
+    setup(world);
     game_loop();
     destroy_game(world);
 
     return 0;
+}
+
+
+void setup(ecs_world_t* world){
+    // Initialization
+    //--------------------------------------------------------------------------------------
+    world = ecs_init();
+    const int screenWidth = WINDOW_WIDTH;
+    const int screenHeight = WINDOW_HEIGHT;
+
+    InitWindow(screenWidth, screenHeight, "Pokeclone");
 }
 
 void game_loop(void) {
