@@ -1,4 +1,5 @@
 #include "settings.h"
+#include "flecs.h"
 
 
 void gameLoop();

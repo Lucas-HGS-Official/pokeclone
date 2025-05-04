@@ -4,7 +4,6 @@
 #include <lua.h>
 #include <lauxlib.h>
 #include <raylib.h>
-#include "flecs.h"
 
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720
