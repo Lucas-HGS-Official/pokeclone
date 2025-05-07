@@ -1,24 +1,24 @@
 #include "settings.h"
 
 
-void setup(ecs_world_t* world);
+void setup(ecs_world_t* ecs_world);
 void game_loop(void);
-void destroy_game(ecs_world_t* world);
+void destroy_game(ecs_world_t* ecs_world);
 
 int main(int argc, char const *argv[]) {
-    ecs_world_t* world;
-    setup(world);
+    ecs_world_t* ecs_world;
+    setup(ecs_world);
     game_loop();
-    destroy_game(world);
+    destroy_game(ecs_world);
 
     return 0;
 }
 
 
-void setup(ecs_world_t* world){
+void setup(ecs_world_t* ecs_world){
     // Initialization
     //--------------------------------------------------------------------------------------
-    world = ecs_init();
+    ecs_world = ecs_init();
     const int screenWidth = WINDOW_WIDTH;
     const int screenHeight = WINDOW_HEIGHT;
 
@@ -51,11 +51,11 @@ void game_loop(void) {
 
 }
 
-void destroy_game(ecs_world_t* world) {
+void destroy_game(ecs_world_t* ecs_world) {
     // De-Initialization
     //--------------------------------------------------------------------------------------
     CloseWindow();        // Close window and OpenGL context
-    ecs_fini(world);
+    ecs_fini(ecs_world);
     //--------------------------------------------------------------------------------------
 
 }
